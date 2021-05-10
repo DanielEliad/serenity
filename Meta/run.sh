@@ -43,6 +43,11 @@ SERENITY_RUN="${SERENITY_RUN:-$1}"
     fi
 }
 
+# FIXME
+SERENITY_MONITOR_ARGS="
+-monitor telnet:127.0.0.1:55555,server,nowait
+-snapshot
+"
 [ -z "$SERENITY_COMMON_QEMU_ARGS" ] && SERENITY_COMMON_QEMU_ARGS="
 $SERENITY_EXTRA_QEMU_ARGS
 -s -m $SERENITY_RAM_SIZE
@@ -60,6 +65,7 @@ $SERENITY_EXTRA_QEMU_ARGS
 -device virtio-rng-pci
 -soundhw pcspk
 -device sb16
+$SERENITY_MONITOR_ARGS
 "
 
 [ -z "$SERENITY_COMMON_QEMU_Q35_ARGS" ] && SERENITY_COMMON_QEMU_Q35_ARGS="

@@ -110,6 +110,7 @@ private:
     bool m_second_port_available { false };
     bool m_is_dual_channel { false };
     RefPtr<MouseDevice> m_mouse_device;
+    RefPtr<MouseDevice> m_mouse_device2;
     RefPtr<KeyboardDevice> m_keyboard_device;
 };
 

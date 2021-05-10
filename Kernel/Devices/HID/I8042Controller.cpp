@@ -140,6 +140,7 @@ void I8042Controller::irq_process_input_buffer(HIDDevice::Type)
     u8 byte = IO::in8(I8042_BUFFER);
     if (data_for_device == HIDDevice::Type::Mouse) {
         VERIFY(m_mouse_device);
+        dbgln("GOT A BYTEEEEEEEE: {}\n", byte);
         static_cast<PS2MouseDevice&>(*m_mouse_device).irq_handle_byte_read(byte);
         return;
     }

@@ -49,6 +49,7 @@ void PS2MouseDevice::handle_irq(const RegisterState&)
 
 void PS2MouseDevice::irq_handle_byte_read(u8 byte)
 {
+    dbgln("GOT PS2 Mouse Device irq");
     auto commit_packet = [&] {
         m_data_state = 0;
         dbgln_if(PS2MOUSE_DEBUG, "PS2Mouse: {}, {} {} {}",
